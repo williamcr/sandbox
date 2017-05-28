@@ -25,7 +25,7 @@ print(mylist)
 
 
 
-people = ["Guy", "Puy", "Eevee"]
+people = ["Guy", "Puy", "Eevee"] 
 for items in people:
     print(items)
 print (str(len(people)) + " people are coming to dinner tonight")
