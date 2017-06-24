@@ -4,9 +4,9 @@ while x == 1:
 
     response = input("Hello, " + name.title() + ". How are you today? (Please respond good or bad)")
 
-    if (response.strip()== "good" or response.strip() == "Good"):
+    if (response.strip().title() == "good"):
         print ("Good for you!")
-    elif (response.strip() == "bad" or response.strip() == "Bad"):
+    elif (response.strip().title() == "bad"):
         print ("I hope you get better soon, " + name.title())
     else:
         print ("Your feelings confuse me.")
@@ -21,16 +21,17 @@ while x == 1:
         print ("You are semi-middle aged!")
     elif (response2 <= 1950):
         print ("You are an old fart!")
+    
+    
    
     print("If my calculations are right, then currently you are this many years old:")
     print(2017 - response2)
 
-    response3 = str(input("Am I right? (Yes or no)"))
+    response3 = input("Am I right? (Yes or no)")
     
-    if(response3.strip().title() == "yes"):
+    if(response3.title() == "yes"):
         print ("Cool.")
-    elif(response3.strip().title() == "no"):
+    elif(response3.title() == "no"):
         print("But...But...It cannot be!")   
-    else: 
-        print("I don't know what you mean.")
+x = 0
     
