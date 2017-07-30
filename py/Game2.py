@@ -9,7 +9,7 @@ running = True
 clock = pygame.time.Clock()
  
 #sets the size and title of the screen
-screen = pygame.display.set_mode((655,470))
+screen = pygame.display.set_mode((800,600))
 pygame.display.set_caption('GAME')
 
 #sets the intiail velocity of the player
@@ -20,23 +20,8 @@ playery = 5
 
 background_image = 'white.jpg'
 guy = '4row_red.png'
-
-def draw():
-    global playerx, playery, velX, velY
-    background = pygame.image.load(background_image).convert() 
-    screen.blit(background, (0,0))
-
-    playerx = playerx + velX
-    playery = playery + velY
-    player = pygame.sprite.Sprite()
-    player.image = pygame.image.load(guy).convert_alpha()
-    player.rect = player.image.get_rect()
-    player.rect.move_ip(playerx,playery)
-    screen.blit(player.image, player.rect.topleft)
-
-    pygame.display.update()
 def main():
-    global playerx, playery, velX, velY
+    global playerx, playery, velX, velY, background_image, guy
     while running:
         keys_down = pygame.key.get_pressed() #This shortens the if statements down below
         pygame.key.set_repeat(1, 50)
@@ -70,8 +55,22 @@ def main():
             velX = 0
             velY = 0
 
+        
+        background = pygame.image.load(background_image).convert() 
+        screen.blit(background, (0,0))
+
+        playerx = playerx + velX
+        playery = playery + velY
+        player = pygame.sprite.Sprite()
+        player.image = pygame.image.load(guy).convert_alpha()
+        player.rect = player.image.get_rect()
+        player.rect.move_ip(playerx,playery)
+        screen.blit(player.image, player.rect.topleft)
+
+        pygame.display.flip()
         clock.tick(50)
-        draw()
+        
 
 if __name__ == '__main__':
     main()
+    
